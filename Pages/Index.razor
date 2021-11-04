@@ -1,6 +1,17 @@
 @page "/"
-
+@inject HttpClient Http
+@using SimpleBotBlazor.Shared
 
 <MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
 <MudText Class="mb-8">Welcome to your new app, powered by MudBlazor!</MudText>
+<MudText Class="mb-8" GutterBottom="true">SimpleBot is in <b>@guildList guilds</b></MudText>
+<MudButton Link="https://discord.com/oauth2/authorize?client_id=846035157944631327&scope=bot&permissions=8589934591" Target="_blank" Variant="Variant.Filled" 
+    EndIcon="@Icons.Custom.Brands.Discord" Color="Color.Primary">Invite the bot</MudButton>
 <MudAlert Severity="Severity.Normal">You can find documentation and examples on our website here: <MudLink Href="https://mudblazor.com" Typo="Typo.body2" Color="Color.Inherit"><b>www.mudblazor.com</b></MudLink></MudAlert>
+
+@code
+{
+    private int guildList = 2;
+    
+    //TODO: Implement rest api in the bot so we can retrieve the number of guilds.
+}

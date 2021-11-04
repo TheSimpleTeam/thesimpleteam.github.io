@@ -1,19 +1,24 @@
-﻿@inherits LayoutComponentBase
+﻿@using MudBlazor.Charts.SVG.Models
+@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="currentTheme"/>
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
     <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(_ => DrawerToggle())" />
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/Garderoben/MudBlazor" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.Discord" Color="Color.Inherit" Link="https://discord.gg/v3Fz2hYHJ5" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/TheSimpleTeam/SimpleBotBlazor/" Target="_blank" />
+        <MudIconButton Icon="@Icons.Filled.Brightness4" Color="Color.Inherit" OnClick="@(_ => LightMode())" Title="Toggle light/dark theme"/>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
         <MudDrawerHeader>
             <MudText Typo="Typo.h6">SimpleBotBlazor</MudText>
+            @** TODO: Add our logo in SVG
+            <MudIconButton Icon="@CustomIcons.tinyGoldNugget" Link="/" Color="Color.Inherit" Size="Size.Medium" Title="Something"/>
+            **@
         </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
@@ -26,6 +31,53 @@
 
 @code {
     bool _drawerOpen = true;
+    
+    MudTheme currentTheme = new();
+
+    protected override void OnInitialized()
+    {
+        currentTheme = darkTheme;
+    }
+    
+    void LightMode()
+    {
+        currentTheme = currentTheme == defaultTheme ? darkTheme : defaultTheme;
+    }
+
+    private readonly MudTheme defaultTheme = new()
+    {
+        Palette = new Palette
+        {
+            Black = "#272c34"
+        }
+    };
+    
+    private readonly MudTheme darkTheme = new()
+    {
+        Palette = new Palette
+        {
+            Black = "#27272f",
+            Background = "#32333d",
+            BackgroundGrey = "#27272f",
+            Surface = "#373740",
+            DrawerBackground = "#27272f",
+            DrawerText = "rgba(255,255,255, 0.50)",
+            DrawerIcon = "rgba(255,255,255, 0.50)",
+            AppbarBackground = "#27272f",
+            AppbarText = "rgba(255,255,255, 0.70)",
+            TextPrimary = "rgba(255,255,255, 0.70)",
+            TextSecondary = "rgba(255,255,255, 0.50)",
+            ActionDefault = "#adadb1",
+            ActionDisabled = "rgba(255,255,255, 0.26)",
+            ActionDisabledBackground = "rgba(255,255,255, 0.12)",
+            Divider = "rgba(255,255,255, 0.12)",
+            DividerLight = "rgba(255,255,255, 0.06)",
+            TableLines = "rgba(255,255,255, 0.12)",
+            LinesDefault = "rgba(255,255,255, 0.12)",
+            LinesInputs = "rgba(255,255,255, 0.3)",
+            TextDisabled = "rgba(255,255,255, 0.2)"
+        }
+    };
 
     void DrawerToggle()
     {

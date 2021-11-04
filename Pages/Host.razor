@@ -1,0 +1,47 @@
+@page "/host"
+
+<MudScrollToTop>
+    <MudFab Color="Color.Tertiary" Icon="@Icons.Filled.ArrowCircleUp" />
+</MudScrollToTop>
+
+<MudText id="title" Typo="Typo.h3" GutterBottom="true">How to setup <b>SimpleBot</b> on your server</MudText>
+
+<MudText id="docker" Typo="Typo.h5" Align="Align.Center" Inline="true">
+    <MudIconButton Icon="@Icons.Filled.AttachFile"
+                   Link="host#docker"
+                   Target="_self"/>
+    Using Docker
+</MudText>
+
+<MudText>If you do not have docker installed, install it <MudLink Href="https://docs.docker.com/engine/install/">from the official documentation.</MudLink></MudText>
+<MudText Typo="Typo.body1">After that execute these commands.</MudText>
+<MudAlert Severity="@Severity.Normal" NoIcon="true" Variant="Variant.Filled" Class="mb-2 mt-3">
+    docker pull thesimpleteam/simplebot:x
+    <br/>
+    <br/>
+    docker volume create simplebotVolume
+    <br/>
+    <br/>
+    docker run -d \
+    <br/>
+    --name simplebot \
+    <br/>
+    -v simplebotVolume:/app \
+    <br/>
+        simplebot:x
+</MudAlert>
+<MudText Typo="Typo.body1">Replace x by the <MudLink Href="https://hub.docker.com/r/thesimpleteam/simplebot/tags">last version of SimpleBot available on Docker hub.</MudLink></MudText>
+
+<br/>
+<section></section>
+<MudText id="jar" Typo="Typo.h5" Align="Align.Center" Inline="true">
+    <MudIconButton Icon="@Icons.Filled.AttachFile"
+                   Link="host#jar"
+                   Target="_self"/>
+    Using the jar
+</MudText>
+<MudAlert Severity="@Severity.Warning">You'll to download <MudLink Href="https://adoptium.net/">Java 17</MudLink></MudAlert>
+
+@code {
+    
+}
