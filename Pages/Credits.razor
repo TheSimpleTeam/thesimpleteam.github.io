@@ -1,19 +1,35 @@
 @page "/Credits"
 <MudText Typo="Typo.h3" GutterBottom="true" Align="Align.Center">Credits</MudText>
-<br/>
+<MudSpacer/>
+<MudSpacer/>
+
+<MudText Typo="Typo.h5" GutterBottom="true" Align="Align.Center">Main Developpers</MudText>
 
 <MudGrid>
     <MudItem xs="12">
         <MudGrid Spacing="6" Justify="Justify.Center">
             <MudItem>
                 <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
-                    <MudAvatar Image="static/images/avatars/minemobs.gif" Size="Size.Large"/>
-                    <MudSpacer/>
                     <MudItem>
-                        Minemobs
+                        <MudPaper Class="d-flex justify-center align-center" Outlined="false" Elevation="0">
+                            <MudAvatar Style="height:100px; width:100px;" Image="static/images/avatars/minemobs.gif" Class="ma-2"/>
+                        </MudPaper>
+                        <MudSpacer/>
+                        <MudText Typo="Typo.h4">Minemobs</MudText>
                     </MudItem>
                 </MudPaper>
             </MudItem>
+            <MudItem>
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                    <MudItem>
+                        <MudPaper Class="d-flex justify-center align-center" Outlined="false" Elevation="0">
+                            <MudAvatar Style="height:100px; width:100px;" Image="static/images/avatars/noalegeek.png" Class="ma-2"/>
+                        </MudPaper>
+                        <MudSpacer/>
+                        <MudText Typo="Typo.h4">NoaLeGeek68</MudText>
+                    </MudItem>
+                </MudPaper>
+            </MudItem>    
         </MudGrid>
     </MudItem>
 </MudGrid>
