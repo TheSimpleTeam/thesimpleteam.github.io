@@ -20,10 +20,17 @@
     
     protected override async Task OnInitializedAsync()
     {
-    var checkingResponse = await http.GetAsync(url);
-        if (checkingResponse.IsSuccessStatusCode)
+        try
         {
-            guildList = await http.GetFromJsonAsync<int>("http://localhost:8080/guilds/count");
+            var checkingResponse = await http.SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
+            if (checkingResponse.IsSuccessStatusCode)
+            {
+                guildList = await http.GetFromJsonAsync<int>("http://localhost:8080/guilds/count");
+            }
+        }
+        catch (Exception)
+        {
+            // ignored
         }
     }
 }
