@@ -16,4 +16,8 @@
     <Folder Include="Styles\components" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include=".github\workflows\blazor.yaml" />
+  </ItemGroup>
+
 </Project>
