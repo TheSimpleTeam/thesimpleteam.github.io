@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Publish application
-        run: dotnet publish -c Release
+        run: |
+          cp wwwroot/index.html wwwroot/404.html
+          dotnet publish -c Release
 
       # base href url value should be changed so that resources like CSS and scripts can load properly. 
       - name: Rewrite base href
