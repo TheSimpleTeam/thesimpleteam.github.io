@@ -1,0 +1,10 @@
+@namespace SimpleBotBlazor.Components
+@inherits MudComponentBase
+
+<MudAlert Severity="@Severity.Normal" NoIcon="true" Variant="Variant.Filled" Class="mb-2 mt-3">
+    @ChildContent
+</MudAlert>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}

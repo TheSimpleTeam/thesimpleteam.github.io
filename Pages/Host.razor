@@ -4,9 +4,9 @@
     <MudFab Color="Color.Tertiary" Icon="@Icons.Filled.ArrowCircleUp" />
 </MudScrollToTop>
 
-<MudText id="title" Typo="Typo.h3" GutterBottom="true">How to setup <b>SimpleBot</b> on your server</MudText>
+<MudText id="title" Typo="Typo.h3" Align="Align.Center" GutterBottom="true">How to setup <b>SimpleBot</b> on your server</MudText>
 
-<MudText id="docker" Typo="Typo.h5" Align="Align.Center" Inline="true">
+<MudText id="docker" Typo="Typo.h4" Align="Align.Center">
     <MudIconButton Icon="@Icons.Filled.AttachFile"
                    Link="host#docker"
                    Target="_self"/>
@@ -15,7 +15,7 @@
 
 <MudText>If you do not have docker installed, install it <MudLink Href="https://docs.docker.com/engine/install/">from the official documentation.</MudLink></MudText>
 <MudText Typo="Typo.body1">After that execute these commands.</MudText>
-<MudAlert Severity="@Severity.Normal" NoIcon="true" Variant="Variant.Filled" Class="mb-2 mt-3">
+<MudCode>
     docker pull thesimpleteam/simplebot:x
     <br/>
     <br/>
@@ -29,17 +29,50 @@
     -v simplebotVolume:/app \
     <br/>
         simplebot:x
-</MudAlert>
+</MudCode>
 <MudText Typo="Typo.body1">Replace x by the <MudLink Href="https://hub.docker.com/r/thesimpleteam/simplebot/tags">last version of SimpleBot available on Docker hub.</MudLink></MudText>
 
 <br/>
 <section></section>
-<MudText id="jar" Typo="Typo.h5" Align="Align.Center" Inline="true">
+<MudText id="jar" Typo="Typo.h4" Align="Align.Center">
     <MudIconButton Icon="@Icons.Filled.AttachFile"
                    Link="host#jar"
                    Target="_self"/>
     Using the jar
 </MudText>
-<MudAlert Severity="@Severity.Warning">You need to download <MudLink Target="_self" Href="https://adoptium.net/">Java 17</MudLink></MudAlert>
+
+<br/>
+<MudAlert Severity="@Severity.Warning">You need to download
+    <MudLink Target="_self" Href="https://adoptium.net/">Java 17</MudLink>
+</MudAlert>
+<br/>
+<MudText id="build" Typo="Typo.h6" Align="Align.Center">
+    Building it your self
+</MudText>
+<br/>
+<MudText>
+    First of all clone this repo and cd in to it, then run this if you are on linux:
+    <MudCode>
+        ./gradlew shadowJar
+    </MudCode>
+    Else if you are on windows:
+    <br/>
+    <MudCode>
+        gradlew.bat shadowJar
+    </MudCode>
+    <br/>
+    After that, go to build/libs and copy the jar to an empty folder.
+    You will also need to download our localizations files and put them in a folder named<b> lang</b> in the same folder as the jar file.
+    <br/>
+    You can download them from
+    <MudLink Href="https://github.com/TheSimpleTeam/SimpleBot/tree/master/lang">
+        Github
+    </MudLink>
+</MudText>
+
+<br/>
+<MudText id="download" Align="Align.Center" Typo="Typo.h6">
+    Downloading the jar from Github
+</MudText>
 
 @code {}
